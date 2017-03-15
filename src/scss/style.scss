@@ -1,9 +1,83 @@
-$bgColor: white;
+$stage-color: #3cbcfc;
 
-body {
-	background-color: $bgColor;
-	
-	h1 {
-		border: 5px solid black;
+.game-canvas {
+	width: 1024px;
+	height: 640px;
+	margin: 0 auto;
+	background: $stage-color url(../images/stage.png) no-repeat center bottom;
+	background-size: contain;
+	position: relative;
+	overflow: hidden;
+}
+
+.dog {
+	width: 110px;
+    height: 100px;
+	background-image: url(../images/sprite.png);
+	background-repeat: no-repeat;
+	animation: walk steps(9) 6s 1 forwards;
+	position: relative;
+
+	&:after {
+		content: "";
+		width: 110px;
+	    height: 100px;
+		background-image: url(../images/sprite.png);
+		background-repeat: no-repeat;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		background-position: 0 -110px;
+		animation: jump steps(4) 4s 4.7s forwards;
+	}
+}
+
+@keyframes walk {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: -990px 0;
+	}
+}
+.dog-container {
+	position: absolute;
+	left: -110px;
+	bottom: 20px;
+	animation: walk-in 12s both;
+}
+
+
+@keyframes jump {
+	from {
+		opacity: 1;
+		background-position: 0 -110px;
+	}
+
+	to {
+		opacity: 1;
+		background-position: -440px -110px;
+	}
+}
+
+@keyframes walk-in {
+	0% {
+		left: -110px;
+		bottom: 20px;
+	}
+
+	30% {
+		left: 350px;
+		bottom: 20px;
+	}
+	48% {
+		left: 350px;
+		bottom: 20px;
+	}
+	58%, 100% {
+		left: 350px;
+		bottom: 150px;
 	}
 }
