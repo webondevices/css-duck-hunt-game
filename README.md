@@ -1,0 +1,1 @@
+CSS Duck Hunt game made entirely in CSS and HTML
