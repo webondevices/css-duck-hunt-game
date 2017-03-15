@@ -1,0 +1,41 @@
+@keyframes walk {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: -990px 0;
+	}
+}
+
+@keyframes jump {
+	from {
+		opacity: 1;
+		background-position: 0 -110px;
+	}
+
+	to {
+		opacity: 1;
+		background-position: -440px -110px;
+	}
+}
+
+@keyframes walk-in {
+	0% {
+		left: -110px;
+		bottom: 20px;
+	}
+
+	30% {
+		left: 350px;
+		bottom: 20px;
+	}
+	48% {
+		left: 350px;
+		bottom: 20px;
+	}
+	58%, 100% {
+		left: 350px;
+		bottom: 150px;
+	}
+}
