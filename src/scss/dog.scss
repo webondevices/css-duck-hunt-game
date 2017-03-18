@@ -1,0 +1,28 @@
+.dog {
+	position: relative;
+	animation: walk steps(9) 6s 1 forwards;
+
+	&, &:after {
+		width: 110px;
+	    height: 100px;
+		background-image: url(../images/sprite.png);
+		background-repeat: no-repeat;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		background-position: 0 -110px;
+		animation: jump steps(4) 4s 4.7s forwards;
+	}
+}
+
+.dog-container {
+	position: absolute;
+	left: -110px;
+	bottom: 20px;
+	animation: walk-in 12s both;
+}

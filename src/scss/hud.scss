@@ -1,0 +1,63 @@
+.hud {
+	counter-increment: score 0;
+}
+.score-box {
+	position: absolute;
+	font-size: 36px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #deecce;
+    font-family: 'VT323', monospace;
+    background-color: black;
+    color: white;
+}
+
+[type="checkbox"]:checked + span {
+	counter-increment: score;
+}
+
+.score-counter {
+    right: 50px;
+    bottom: 25px;
+    width: 75px;
+    height: 65px;
+    text-align: right;   
+
+    &:after {
+    	content: counter(score);
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+    }
+}
+
+.hit-counter {
+	right: 210px;
+    bottom: 25px;
+    height: 65px;
+    width: 255px;
+
+    .bird-hit {
+		width: 20px;
+		height: 20px;
+		display: block;
+		float: left;
+		padding: 2px 5px 0 0;
+
+		& > span {
+			width: 20px;
+			height: 20px;
+			display: block;
+			background-image: url(../images/shots.png);
+			background-position: -20px 0;
+		}
+
+		& > [type="checkbox"] {
+			display: none;
+		}
+
+		& > [type="checkbox"]:checked + span {
+			background-position: 0 0;
+		}
+    }
+}

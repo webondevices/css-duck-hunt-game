@@ -1,13 +1,25 @@
+//
+// Sprite animations
 @keyframes walk {
-	from {
-		background-position: 0 0;
-	}
-
-	to {
-		background-position: -990px 0;
-	}
+	from { background-position: 0 0 }
+	to { background-position: -990px 0 }
 }
 
+@keyframes fly {
+	0%  { background-position:      0 -285px; transform: scaleX(1); }
+	25% { background-position: -330px -285px; transform: scaleX(1); }
+	26% { background-position:      0 -285px; transform: scaleX(1); }
+	50% { background-position: -330px -285px; transform: scaleX(1); }
+	51% { background-position:      0 -285px; transform: scaleX(-1); }
+	75% { background-position: -330px -285px; transform: scaleX(-1); }
+	76% { background-position:      0 -285px; transform: scaleX(-1); }
+	99% { background-position: -330px -285px; transform: scaleX(-1); }
+	100%{ background-position:      0 -285px; transform: scaleX(1); }
+}
+
+
+//
+// Character movement animations
 @keyframes jump {
 	from {
 		opacity: 1;
@@ -38,4 +50,12 @@
 		left: 350px;
 		bottom: 150px;
 	}
+}
+
+@keyframes fly-in {
+	0%  { top: 500px }
+	20% { top: 350px }
+	60% { top: 200px }
+	80% { top: 50px }
+	100%{ top: -100px }
 }
