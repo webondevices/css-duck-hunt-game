@@ -1,6 +1,7 @@
 .hud {
 	counter-increment: score 0;
 }
+
 .score-box {
 	position: absolute;
 	font-size: 36px;
@@ -10,10 +11,6 @@
     font-family: 'VT323', monospace;
     background-color: black;
     color: white;
-}
-
-[type="checkbox"]:checked + span {
-	counter-increment: score;
 }
 
 .score-counter {
@@ -42,22 +39,18 @@
 		height: 20px;
 		display: block;
 		float: left;
-		padding: 2px 5px 0 0;
-
-		& > span {
-			width: 20px;
-			height: 20px;
-			display: block;
-			background-image: url(../images/shots.png);
-			background-position: -20px 0;
-		}
-
-		& > [type="checkbox"] {
-			display: none;
-		}
-
-		& > [type="checkbox"]:checked + span {
-			background-position: 0 0;
-		}
+		margin: 2px 5px 0 0;
+		background-image: url(../images/shots.png);
+		background-position: -20px 0;
     }
+}
+
+[type="checkbox"]:checked {
+	counter-increment: score 100;
+}
+
+@for $i from 1 through 10 {
+	[type="checkbox"]:nth-of-type(#{$i}):checked ~ .hit-counter > ul > .bird-hit:nth-child(#{$i}) {
+		background-position: 0 0;
+	}
 }

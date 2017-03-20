@@ -5,6 +5,12 @@ $stage-color: #3cbcfc;
 @import 'dog';
 @import 'bird';
 
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 .game-canvas {
 	font-family: 'VT323', monospace;
 	width: 1024px;
@@ -19,4 +25,8 @@ $stage-color: #3cbcfc;
 
 *, *:hover {
 	cursor: url(../images/crosshair.png), auto;
+}
+
+[type="checkbox"] {
+	visibility: hidden;
 }

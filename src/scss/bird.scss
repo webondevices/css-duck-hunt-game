@@ -1,34 +1,42 @@
-ul, li {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
 .bird-flock-1 {
 	width: 100%;
-    height: 480px;
+    height: 100%;
     overflow: hidden;
     position: relative;
 }
 
-.bird-container {
+.bird {
 	position: absolute;
 	width: 110px;
 	height: 85px;
-	animation: fly-in 6s 1 both;
+	top: 400px;
+	animation: fly-in 6s 1 linear both;
 
-	.bird-flock-1 & label {
+	&::before {
+		content: "";
 		display: block;
 		height: 85px;
 		background-image: url(../images/sprite.png);
 		background-repeat: no-repeat;
-		animation: fly steps(3) 2s infinite forwards;
+		touch-action: none;
+
+		[type="checkbox"] + & {
+			animation: fly steps(3) 2s infinite forwards;	
+		}
+		
+		[type="checkbox"]:checked + & {
+			animation-name: none;
+			background-position: 0 -460px;
+			animation: die 2s 1s forwards;
+		}
 	}
 
-	@for $i from 1 through 10 {
-		&:nth-child(#{$i}) {
-			animation-delay: ($i * 6) + random(3) + s;
-			left: random(1000) + px;
+	@for $i from 1 through 20 {
+		@if $i % 2 == 0 {
+			&:nth-child(#{$i}) {
+				animation-delay: ($i * 4000) + random(3000) + ms;
+				left: random(1000) + px;
+			}
 		}
 	}
 }
